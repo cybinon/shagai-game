@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shagai Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css" >
+  </head>
+  <body>
+    <h1 class="title">Mongolian Shagai Game | Developing</h1>
+
+    <div class="content">
+      <div class="shagai">
+        <img class="roller-img" src="https://i.ibb.co/2NDjm9b/honi.png" alt="">
+        <p class="roller-text">Sheep</p>
+      </div>
+      <div class="shagai">
+         
+        <img class="roller-img" src="https://i.ibb.co/cFJCWx5/mori.png" alt="">
+        <p class="roller-text">Horse</p>
+      </div>
+      <div class="shagai">
+         
+        <img class="roller-img" src="https://i.ibb.co/1T25pGw/temee.png" alt="">
+        <p class="roller-text">Camel</p>
+      </div>
+      <div class="shagai">
+         
+        <img class="roller-img" src="https://i.ibb.co/sjmwyZ1/ymaa.png" alt="">
+        <p class="roller-text">Goat</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="dialog">
+        <p id="result"></p>
+        <button onclick="shagaihayh();" class="btn">Roll</button>
+      </div>
+    </div>
+    <script>
+        let shagai = [
+          {
+            text: "Sheep",
+            pic: "https://i.ibb.co/2NDjm9b/honi.png"
+          },
+          {
+            text: "Horse",
+            pic: "https://i.ibb.co/cFJCWx5/mori.png",
+          },
+          {
+            text: "Camel",
+            pic: "https://i.ibb.co/1T25pGw/temee.png",
+          },
+          {
+            text: "Goat",
+            pic:"https://i.ibb.co/sjmwyZ1/ymaa.png"
+          },  
+        ]                
+
+      function shagaihayh () {
+        //little effect 
+        var ctx = [
+          {
+            txt:document.getElementsByClassName("roller-text").item(0), 
+            img:document.getElementsByClassName("roller-img").item(0) 
+          },
+          {
+            txt:document.getElementsByClassName("roller-text").item(1), 
+            img:document.getElementsByClassName("roller-img").item(1) 
+          },
+          {
+            txt:document.getElementsByClassName("roller-text").item(2), 
+            img:document.getElementsByClassName("roller-img").item(2) 
+          },
+          {
+            txt:document.getElementsByClassName("roller-text").item(3), 
+            img:document.getElementsByClassName("roller-img").item(3) 
+          }, 
+      ]              
+        let inti = setInterval(() => {
+          let roll = [Math.floor(Math.random()*4), Math.floor(Math.random()*4), Math.floor(Math.random()*4), Math.floor(Math.random()*4)]
+          ctx[0].img.src=shagai[roll[0]].pic
+          ctx[1].img.src=shagai[roll[1]].pic
+          ctx[2].img.src=shagai[roll[2]].pic
+          ctx[3].img.src=shagai[roll[3]].pic
+
+          ctx[0].txt.innerHTML=shagai[roll[0]].text
+          ctx[1].txt.innerHTML=shagai[roll[1]].text
+          ctx[2].txt.innerHTML=shagai[roll[2]].text
+          ctx[3].txt.innerHTML=shagai[roll[3]].text
+        }, 10)
+
+        setTimeout(() => {
+          clearInterval(inti)
+          let is_dif = true
+          ctx.reduce((att,itt)=>{
+            let check = att.find(el => el.txt.innerHTML===itt.txt.innerHTML)
+             if(check) is_dif = false
+             att.push(itt)
+             return att
+          }, [])
+          if(is_dif) document.getElementById("result").innerHTML = "Wow, 4 difficult You Won!"
+            else document.getElementById("result").innerHTML = "Sorry, Roll again!"
+        }, 1000)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+.title {
+  text-align: center;
+}
+.shagai{
+  width: 25%;
+  height: 200px;
+  text-align: center;
+  margin-right: 10px;
+}
+.content{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  width:90%;
+}
+.dialog{
+  margin-top: 50px;
+}
+.btn{
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #00a1ed;
+  cursor: pointer;
+  border: 1px solid blue;
+}
+.roller-img {
+  border-radius: 10px;
+  height: 75%;
+  width: 100%;
+}
+.roller-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 20%;
+}
+#result{
+  text-align: center;
+}
